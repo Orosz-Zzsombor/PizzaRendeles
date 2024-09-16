@@ -1,0 +1,58 @@
+adatbázis:
+
+TÁBLÁK:
+
+Felhasználó:
+
+felhasznaloId,
+username varchar,
+password varchar,
+email,
+adminJogosultság
+
+Rendelés:
+
+RendelesId,
+felhsaználóId int foreign key,
+Név,
+lakcím,
+PizzaID,
+mennyiseg,
+Datum,
+
+Pizza:
+
+pizzaId,
+PizzaNev,
+egységÁr,
+
+Alapanyag:
+
+
+alapanyagId,
+alapanyagNev,
+alapanyagMennyiseg,
+
+
+CREATE TABLE Felhasznalo(
+	
+);
+ 
+CREATE TABLE Pizza (
+	pizzaId int,
+	pizzaNev varchar(255),
+	egységÁr int
+
+);
+
+CREATE TABLE PizzaAlapanyag (
+    pizzaId INT,
+    alapanyagId INT,
+    mennyiseg INT,
+    FOREIGN KEY (pizzaId) REFERENCES Pizza(pizzaId),
+    FOREIGN KEY (alapanyagId) REFERENCES Alapanyag(alapanyagId)
+);
+
+
+
+
