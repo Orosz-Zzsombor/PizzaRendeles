@@ -1,57 +1,133 @@
-adatbázis:
-
-TÁBLÁK:
-
-Felhasználó:
-
-felhasznaloId,
-username varchar,
-password varchar,
-email,
-adminJogosultság
-
-Rendelés:
-
-RendelesId,
-felhsaználóId int foreign key,
-Név,
-lakcím,
-PizzaID,
-mennyiseg,
-Datum,
-
-Pizza:
-
-pizzaId,
-PizzaNev,
-egységÁr,
-
-Alapanyag:
-
-
-alapanyagId,
-alapanyagNev,
-alapanyagMennyiseg,
-
-
-CREATE TABLE Felhasznalo(
-	
+CREATE TABLE Felhasznalo (
+    felhasznaloId INT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    adminJogosultsag BOOLEAN NOT NULL
 );
- 
+
+-- Pizza table
 CREATE TABLE Pizza (
-	pizzaId int,
-	pizzaNev varchar(255),
-	egységÁr int
-
+    pizzaId INT PRIMARY KEY,
+    pizzaNev VARCHAR(255) NOT NULL,
+    egysegAr INT NOT NULL
+);
+s
+-- Alapanyag table
+CREATE TABLE Alapanyag (
+    alapanyagId INT PRIMARY KEY,
+    alapanyagNev VARCHAR(255) NOT NULL,
+    alapanyagMennyiseg INT NOT NULL
 );
 
+-- PizzaAlapanyag table (junction table)
 CREATE TABLE PizzaAlapanyag (
     pizzaId INT,
     alapanyagId INT,
-    mennyiseg INT,
+    mennyiseg INT NOT NULL,
+    PRIMARY KEY (pizzaId, alapanyagId),
     FOREIGN KEY (pizzaId) REFERENCES Pizza(pizzaId),
     FOREIGN KEY (alapanyagId) REFERENCES Alapanyag(alapanyagId)
 );
+
+-- Rendeles table
+CREATE TABLE Rendeles (
+    rendelesId INT PRIMARY KEY,
+    felhasznaloId INT,
+    pizzaId INT,
+    mennyiseg INT NOT NULL,
+    datum DATE NOT NULL,
+    cim VARCHAR(255) NOT NULL,
+    FOREIGN KEY (felhasznaloId) REFERENCES Felhasznalo(felhasznaloId),
+    FOREIGN KEY (pizzaId) REFERENCES Pizza(pizzaId)
+);
+------------------------------------------------------------------------------------------------
+Insert into
+
+INSERT INTO Pizza (pizzaId, pizzaNev, egysegAr)
+VALUES
+(1, 'Margherita', 3300),
+(2, 'Hawaii', 3500),
+(3, 'Magyaros', 3900),
+(4, 'Dallas', 3500),
+(5, 'Sonkás-Kukoricás', 3500),
+(6, 'Carbonara', 3700),
+(7, 'SokSajtos', 3700),
+(8, 'Texas', 3700),
+(9, 'Szuprém', 3700);
+
+INSERT INTO Alapanyag (alapanyagId, alapanyagNev, alapanyagMennyiseg)
+VALUES
+(1, 'Paradicsomszósz', 100),
+(2, 'Mozzarella', 50),
+(3, 'Pepperoni', 30),
+(4, 'Sonka', 30),
+(5, 'Kukorica', 30),
+(6, 'Ananász', 30),
+(7, 'Bacon', 30),
+(8, 'Olaszkolbász', 30),
+(9, 'Lilahagyma', 30),
+(10, 'Marhahús', 30);
+
+INSERT INTO PizzaAlapanyag (pizzaId, alapanyagId, mennyiseg)
+VALUES
+-- Margherita
+(1, 1, 50),  -- Paradicsomszósz
+(1, 2, 30),  -- Mozzarella
+
+-- Hawaii
+(2, 1, 50),  -- Paradicsomszósz
+(2, 2, 30),  -- Mozzarella
+(2, 6, 20),  -- Ananász
+(2, 4, 20),  -- Sonka
+
+-- Magyaros
+(3, 1, 50),  -- Paradicsomszósz
+(3, 2, 30),  -- Mozzarella
+(3, 8, 20),  -- Olaszkolbász
+(3, 9, 15),  -- Lilahagyma
+
+-- Dallas
+(4, 1, 50),  -- Paradicsomszósz
+(4, 2, 30),  -- Mozzarella
+(4, 7, 20),  -- Bacon
+(4, 10, 25), -- Marhahús
+
+-- Sonkás-Kukoricás
+(5, 1, 50),  -- Paradicsomszósz
+(5, 2, 30),  -- Mozzarella
+(5, 4, 20),  -- Sonka
+(5, 5, 20),  -- Kukorica
+
+-- Carbonara
+(6, 2, 30),  -- Mozzarella
+(6, 7, 20),  -- Bacon
+(6, 10, 25), -- Marhahús
+
+-- SokSajtos
+(7, 2, 50),  -- Mozzarella
+-- (Add other cheese types if available)
+
+-- Texas
+(8, 1, 50),  -- Paradicsomszósz
+(8, 2, 30),  -- Mozzarella
+(8, 7, 20),  -- Bacon
+(8, 10, 25), -- Marhahús
+
+-- Szuprém
+(9, 1, 50),  -- Paradicsomszósz
+(9, 2, 30),  -- Mozzarella
+(9, 3, 20),  -- Pepperoni
+(9, 4, 20),  -- Sonka
+(9, 5, 20),  -- Kukorica
+(9, 9, 15);  -- Lilahagyma
+
+INSERT INTO Felhasznalo (felhasznaloId, username, password, email, adminJogosultsag)
+VALUES
+(1, 'admin_user1', 'adminpass1', 'admin1@example.com', TRUE),
+(2, 'admin_user2', 'adminpass2', 'admin2@example.com', TRUE),
+(3, 'default_user1', 'userpass1', 'user1@example.com', FALSE),
+(4, 'default_user2', 'userpass2', 'user2@example.com', FALSE);
 
 
 
