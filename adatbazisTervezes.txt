@@ -1,3 +1,5 @@
+CREATE DATABASE Pizzaprojekt DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
+
 CREATE TABLE Felhasznalo (
     felhasznaloId INT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
