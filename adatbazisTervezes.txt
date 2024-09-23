@@ -14,7 +14,7 @@ CREATE TABLE Pizza (
     pizzaNev VARCHAR(255) NOT NULL,
     egysegAr INT NOT NULL
 );
-s
+
 -- Alapanyag table
 CREATE TABLE Alapanyag (
     alapanyagId INT PRIMARY KEY,
@@ -48,28 +48,28 @@ Insert into
 
 INSERT INTO Pizza (pizzaId, pizzaNev, egysegAr)
 VALUES
-(1, 'Margherita', 3300),
-(2, 'Hawaii', 3500),
-(3, 'Magyaros', 3900),
-(4, 'Dallas', 3500),
-(5, 'Sonkás-Kukoricás', 3500),
-(6, 'Carbonara', 3700),
-(7, 'SokSajtos', 3700),
-(8, 'Texas', 3700),
-(9, 'Szuprém', 3700);
+( 'Margherita', 3300),
+( 'Hawaii', 3500),
+( 'Magyaros', 3900),
+( 'Dallas', 3500),
+('Sonkás-Kukoricás', 3500),
+('Carbonara', 3700),
+( 'SokSajtos', 3700),
+('Texas', 3700),
+('Szuprém', 3700);
 
 INSERT INTO Alapanyag (alapanyagId, alapanyagNev, alapanyagMennyiseg)
 VALUES
-(1, 'Paradicsomszósz', 100),
-(2, 'Mozzarella', 50),
-(3, 'Pepperoni', 30),
-(4, 'Sonka', 30),
-(5, 'Kukorica', 30),
-(6, 'Ananász', 30),
-(7, 'Bacon', 30),
-(8, 'Olaszkolbász', 30),
-(9, 'Lilahagyma', 30),
-(10, 'Marhahús', 30);
+( 'Paradicsomszósz', 100),
+( 'Mozzarella', 50),
+( 'Pepperoni', 30),
+( 'Sonka', 30),
+( 'Kukorica', 30),
+( 'Ananász', 30),
+('Bacon', 30),
+('Olaszkolbász', 30),
+('Lilahagyma', 30),
+( 'Marhahús', 30);
 
 INSERT INTO PizzaAlapanyag (pizzaId, alapanyagId, mennyiseg)
 VALUES
@@ -108,7 +108,6 @@ VALUES
 
 -- SokSajtos
 (7, 2, 50),  -- Mozzarella
--- (Add other cheese types if available)
 
 -- Texas
 (8, 1, 50),  -- Paradicsomszósz
