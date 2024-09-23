@@ -5,7 +5,7 @@ CREATE TABLE Felhasznalo (
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    adminJogosultsag BOOLEAN NOT NULL
+    Jogosultsag ENUM('admin', 'user') NOT NULL,
 );
 
 -- Pizza table
