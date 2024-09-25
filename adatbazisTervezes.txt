@@ -46,7 +46,7 @@ CREATE TABLE Rendeles (
 ------------------------------------------------------------------------------------------------
 Insert into
 
-INSERT INTO Pizza (pizzaId, pizzaNev, egysegAr)
+INSERT INTO Pizza (pizzaNev, egysegAr)
 VALUES
 ( 'Margherita', 3300),
 ( 'Hawaii', 3500),
@@ -58,7 +58,7 @@ VALUES
 ('Texas', 3700),
 ('Szuprém', 3700);
 
-INSERT INTO Alapanyag (alapanyagId, alapanyagNev, alapanyagMennyiseg)
+INSERT INTO Alapanyag (alapanyagNev, alapanyagMennyiseg)
 VALUES
 ( 'Paradicsomszósz', 100),
 ( 'Mozzarella', 50),
