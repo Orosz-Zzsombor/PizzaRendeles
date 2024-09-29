@@ -39,8 +39,7 @@ CREATE TABLE IF NOT EXISTS Rendeles (
     FOREIGN KEY (felhasznaloId) REFERENCES Felhasznalok(felhasznaloId),
     FOREIGN KEY (pizzaId) REFERENCES Pizza(pizzaId)
 );
-------------------------------------------------------------------------------------------------
-Insert into
+
 
 INSERT INTO Pizza (pizzaNev, egysegAr)
 VALUES
