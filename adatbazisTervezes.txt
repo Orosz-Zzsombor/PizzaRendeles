@@ -123,13 +123,12 @@ VALUES
 (9, 5, 20),  -- Kukorica
 (9, 9, 15);  -- Lilahagyma
 
-INSERT INTO Felhasznalo (felhasznaloId, username, password, email, adminJogosultsag)
+INSERT INTO felhasznalok ( username, password, email, Jogosultsag)
 VALUES
-(1, 'admin_user1', 'adminpass1', 'admin1@example.com', TRUE),
-(2, 'admin_user2', 'adminpass2', 'admin2@example.com', TRUE),
-(3, 'default_user1', 'userpass1', 'user1@example.com', FALSE),
-(4, 'default_user2', 'userpass2', 'user2@example.com', FALSE);
-
+( 'admin_user1', 'adminpass1', 'admin1@example.com', 'admin'),
+( 'admin_user2', 'adminpass2', 'admin2@example.com', 'admin'),
+( 'default_user1', 'userpass1', 'user1@example.com', 'user'),
+('default_user2', 'userpass2', 'user2@example.com',' user');
 
 
 
